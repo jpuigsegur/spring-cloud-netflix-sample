@@ -1,0 +1,17 @@
+info:
+ name: HYSTRIX-DASHBOARD
+ description: HYSTRIX-DASHBOARD
+ version: 1.0.0
+---
+server:
+  port: 9100
+---
+security:
+  ignored: true
+---
+eureka:
+  hostname: localhost
+  password: s3cr3t
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

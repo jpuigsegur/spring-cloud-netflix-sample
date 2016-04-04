@@ -1,0 +1,40 @@
+info:
+ name: zuul-server
+ description: Zuul Server
+ version: 1.0.0
+---
+endpoints:
+ restart:
+  enabled: true
+ shutdown:
+  enabled: true
+ health:
+  enabled: true
+  sensitive: false
+---
+server:
+  port: 8080
+---
+eureka:
+  hostname: localhost
+  password: s3cr3t
+  instance:
+    metadataMap:
+      cluster: MYCLUSTER
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+---
+zuul:
+ routes:
+  microservice-one:  
+   path: /microserviceone/**
+   serviceId: microservice-one
+  microservice-two:  
+   path: /microservicetwo/**
+   serviceId: microservice-two
+---
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-}] [%15.15t] %-40.40logger{39}: %m%n'
+

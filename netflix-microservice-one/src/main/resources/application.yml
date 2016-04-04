@@ -1,0 +1,21 @@
+info:
+ name: Microservice-ONE
+ description: Microservice-ONE
+ version: 1.0.0
+---
+server:
+ port: 9001
+---
+eureka:
+  hostname: localhost
+  password: s3cr3t
+  instance:
+    metadataMap:
+      cluster: MYCLUSTER
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+---
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-}] [%15.15t] %-40.40logger{39}: %m%n'

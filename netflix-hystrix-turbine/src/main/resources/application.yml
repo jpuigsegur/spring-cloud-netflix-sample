@@ -1,0 +1,24 @@
+info:
+ name: HYSTRIX-TURBINE
+ description: HYSTRIX-TURBINE
+ version: 1.0.0
+---
+server:
+  port: 9200
+---
+security:
+  ignored: true
+---
+turbine:
+  aggregator:
+    clusterConfig: MYCLUSTER
+  appConfig: microservice-one, microservice-two, zuul-server
+  clusterNameExpression: metadata['cluster']
+---
+eureka:
+  hostname: localhost
+  password: s3cr3t
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
