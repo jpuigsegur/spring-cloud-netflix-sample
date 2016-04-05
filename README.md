@@ -1,12 +1,14 @@
+Spring Cloud Netflix Sample
+===========================
 
 This project is intended to be a test of several spring cloud technologies, namely:
 
-# Service discovery via Eureka server
-# Client side balancing using Ribbon
-# Edge server using zuul
-# Circuit breaker using Hystrix
-# Real time monitoring using Hystrix Dashboard + Turbine to aggregate all monitoring streams
-# Log correlation using sleuth
+- Service discovery via Eureka server
+- Client side balancing using Ribbon
+- Edge server using zuul
+- Circuit breaker using Hystrix
+- Real time monitoring using Hystrix Dashboard + Turbine to aggregate all monitoring streams
+- Log correlation using sleuth
 
   X-B3-TraceId: c058d819e6499487
 
