@@ -12,8 +12,9 @@ security:
 turbine:
   aggregator:
     clusterConfig: MYCLUSTER
-  appConfig: microservice-one, microservice-two, zuul-server
+  appConfig: microservice-one,microservice-two,zuul-server  # No spaces (see https://github.com/spring-cloud/spring-cloud-netflix/issues/948)
   clusterNameExpression: metadata['cluster']
+  combineHostPort: true  # Necessary if you run two or more services in a single host
 ---
 eureka:
   hostname: localhost

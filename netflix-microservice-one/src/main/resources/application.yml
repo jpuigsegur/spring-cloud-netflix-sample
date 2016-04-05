@@ -16,6 +16,15 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 ---
+# https://github.com/Netflix/Hystrix/wiki/Configuration
+hystrix:
+  command:
+    myMicroserviceTwo:
+      execution:
+        isolation.thread.timeoutInMilliseconds: 500
+      circuitBreaker:
+        requestVolumeThreshold: 2    # For testing purposes
+---
 logging:
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-}] [%15.15t] %-40.40logger{39}: %m%n'

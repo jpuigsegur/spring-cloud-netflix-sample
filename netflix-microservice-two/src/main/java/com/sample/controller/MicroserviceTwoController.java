@@ -22,6 +22,28 @@ public class MicroserviceTwoController {
 	@RequestMapping("/")
 	@ResponseBody
 	ResponseTwo homeMicroServiceTwo() {
+		/* Simulate some computing time */
+		try {
+			Thread.sleep((int) (Math.random() * 250) + 25);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
+
+		/* Fail rarely ...  */
+		if (Math.random() > 0.9999) {
+			throw new RuntimeException("random failure loading order over network");
+		}
+
+		/* Simulate latency spikes % of the time */
+		if (Math.random() > 0.95) {
+			LOGGER.info("random latency spike !!!");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// do nothing
+			}
+		}
+
 		ServiceInstance localInstance = discoveryClient.getLocalServiceInstance();
 		ResponseTwo responseTwo = new ResponseTwo();
 		responseTwo.setHost(localInstance.getHost());
