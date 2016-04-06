@@ -28,10 +28,10 @@ eureka:
 zuul:
  routes:
   microservice-one:  
-   path: /microserviceone/**
+   path: /one/**
    serviceId: microservice-one
   microservice-two:  
-   path: /microservicetwo/**
+   path: /two/**
    serviceId: microservice-two
 ---
 logging:

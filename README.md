@@ -6,6 +6,11 @@ This project is intended to be a test of several spring cloud technologies, name
 - Service discovery via Eureka server
 - Client side balancing using Ribbon
 - Edge server using zuul
+
+  Exposed endpoints:
+  http://localhost:8080/one/microservice-one/
+  http://localhost:8080/two/microservice-two/
+
 - Circuit breaker using Hystrix
 - Real time monitoring using Hystrix Dashboard + Turbine to aggregate all monitoring streams
 - Log correlation using sleuth
@@ -34,4 +39,9 @@ Interesting Links
 - https://github.com/Netflix/Turbine/wiki/Configuration-(1.x)#important-note
 
 - https://github.com/ewolff/microservice  A similar demo (using docker)
+
+- http://springfox.github.io/springfox/docs/current/
+- http://www.hascode.com/2015/07/integrating-swagger-into-a-spring-boot-restful-webservice-with-springfox/
+- http://heidloff.net/article/usage-of-swagger-2-0-in-spring-boot-applications-to-document-apis/
+- http://fizzylogic.nl/2015/07/29/quickly-generate-api-docs-for-your-spring-boot-application-using-springfox/
 

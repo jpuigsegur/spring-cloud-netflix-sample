@@ -28,3 +28,9 @@ hystrix:
 logging:
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-}] [%15.15t] %-40.40logger{39}: %m%n'
+---
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs

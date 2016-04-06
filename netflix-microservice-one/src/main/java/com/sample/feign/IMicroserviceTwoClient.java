@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "microservice-two", fallback = MicroserviceTwoFallback.class)
 public interface IMicroserviceTwoClient {
-	 @RequestMapping(method = RequestMethod.GET, value = "/")
-	 ResponseTwo myMicroserviceTwo();
+	 @RequestMapping(method = RequestMethod.GET, value = "/microservice-two/")
+	 ResponseTwo testCall();
 }
