@@ -10,7 +10,9 @@ This project is intended to be a test of several spring cloud technologies, name
 - Real time monitoring using Hystrix Dashboard + Turbine to aggregate all monitoring streams
 - Log correlation using sleuth
 
-  X-B3-TraceId: c058d819e6499487
+  Adding spring.cloud.sleuth dependency we get a consistent TraceId added to all the 
+  logs in all microservices, and we also get the following header in the JSon 
+  response:  ` X-B3-TraceId: c058d819e6499487`
 
 
 Run test sample
@@ -24,8 +26,9 @@ Interesting Links
 -----------------
 
 - http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
-- http://projects.spring.io/spring-cloud/spring-cloud.html#_hystrix_metrics_stream
+
 - https://github.com/Netflix/Hystrix/wiki/How-To-Use#common-patterns
+- http://projects.spring.io/spring-cloud/spring-cloud.html#_hystrix_metrics_stream
 
 - https://github.com/Netflix/Turbine/wiki/Configuration-(1.x)#provided-implementations-for-instancediscovery
 - https://github.com/Netflix/Turbine/wiki/Configuration-(1.x)#important-note
