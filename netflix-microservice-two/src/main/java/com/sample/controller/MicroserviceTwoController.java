@@ -22,21 +22,21 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@Api(value="/microservice-two/", description="Example microservice API (microservice-two)")
-@RequestMapping(value="/microservice-two/")
+@Api(value="Test microservice", description="Example microservice API (microservice-two)")
+@RequestMapping("/")
 public class MicroserviceTwoController {
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MicroserviceTwoController.class);
 
 	@Autowired
 	DiscoveryClient discoveryClient;
 
-	@ApiOperation(tags = {"Test operation"},
-			value = "/",
-			notes = "Test operation for microservice-two",
-			response = ResponseTwo.class)
+	@ApiOperation(tags = {"sample"},
+        value = "Test operation",
+        notes = "This is a test operation for microservice-two",
+        response = ResponseTwo.class)
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Successful response"),
-			@ApiResponse(code = 500, message = "Unexpected error",  response = ErrorResult.class) })
+        @ApiResponse(code = 200, message = "Successful response"),
+        @ApiResponse(code = 500, message = "Unexpected error",  response = ErrorResult.class) })
 	@RequestMapping(value="/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseTwo testCall() {

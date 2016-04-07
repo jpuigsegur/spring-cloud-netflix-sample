@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-@ApiModel(description="Structure returned by microservice-two demo method")
+@ApiModel(description="Structure returned by microservice-one demo method")
 public class ResponseOne {
 
     @JsonProperty(required = true)

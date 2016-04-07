@@ -24,5 +24,4 @@ public class ResponseTwo {
     @JsonProperty(required = true)
     @ApiModelProperty(notes = "The microservice Id", required = true)
     public String serviceId;
-
 }

@@ -1,10 +1,11 @@
 info:
- name: Microservice-ONE
- description: Microservice-ONE
- version: 1.0.0
+  name: Microservice-ONE
+  description: Microservice-ONE
+  version: 1.0
 ---
 server:
- port: 9001
+  port: 9001
+  contextPath: /microservice-one
 ---
 eureka:
   hostname: localhost

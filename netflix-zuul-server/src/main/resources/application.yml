@@ -28,11 +28,13 @@ eureka:
 zuul:
  routes:
   microservice-one:  
-   path: /one/**
+   path: /microservice-one/**
    serviceId: microservice-one
+   strip-prefix: false
   microservice-two:  
-   path: /two/**
+   path: /microservice-two/**
    serviceId: microservice-two
+   strip-prefix: false
 ---
 logging:
   pattern:

@@ -1,10 +1,11 @@
 info:
- name: Microservice-TWO
- description: Microservice-TWO
- version: 1.0.0
+  name: Microservice-TWO
+  description: Microservice-TWO
+  version: 1.0
 ---
 server:
- port: 9002
+  port: 9002
+  contextPath: /microservice-two
 ---
 eureka:
   hostname: localhost

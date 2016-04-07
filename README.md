@@ -61,7 +61,7 @@ The script uses cygwin, although it shouldn't be difficult to change to a linux 
 ### Swagger and SpringFox
 
 - http://springfox.github.io/springfox/docs/current/
-- https://github.com/swagger-api/swagger-core/wiki/Annotations
+- https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X
 - http://www.hascode.com/2015/07/integrating-swagger-into-a-spring-boot-restful-webservice-with-springfox/
 - http://heidloff.net/article/usage-of-swagger-2-0-in-spring-boot-applications-to-document-apis/
 - http://fizzylogic.nl/2015/07/29/quickly-generate-api-docs-for-your-spring-boot-application-using-springfox/
