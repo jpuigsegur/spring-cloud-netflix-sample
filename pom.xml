@@ -8,8 +8,8 @@
 	<name>sample-spring-cloud-netflix</name>
 	<modules>
 		<module>netflix-eureka-server</module>
-		<module>netflix-microservice-one</module>
-		<module>netflix-microservice-two</module>
+		<module>microservice-one</module>
+		<module>microservice-two</module>
 		<module>netflix-zuul-server</module>
 		<module>netflix-hystrix-dashboard</module>
 		<module>netflix-hystrix-turbine</module>

@@ -5,17 +5,17 @@ mintty --title=eureka/8761 java -jar netflix-eureka-server/target/netflix-eureka
 sleep 10s
 
 # microservice-one: 2 instances
-mintty --title=microservice-one/9011 java -Dserver.port=9011 -jar netflix-microservice-one/target/microservice-one-0.0.1-SNAPSHOT.jar &
+mintty --title=microservice-one/9011 java -Dserver.port=9011 -jar microservice-one/target/microservice-one-0.0.1-SNAPSHOT.jar &
 sleep 20s
-mintty --title=microservice-one/9012 java -Dserver.port=9012 -jar netflix-microservice-one/target/microservice-one-0.0.1-SNAPSHOT.jar &
+mintty --title=microservice-one/9012 java -Dserver.port=9012 -jar microservice-one/target/microservice-one-0.0.1-SNAPSHOT.jar &
 sleep 20s
 
 # microservice-two: 4 instances
-mintty --title=microservice-two/9021 java -Dserver.port=9021 -jar netflix-microservice-two/target/microservice-two-0.0.1-SNAPSHOT.jar &
+mintty --title=microservice-two/9021 java -Dserver.port=9021 -jar microservice-two/target/microservice-two-0.0.1-SNAPSHOT.jar &
 sleep 20s
-mintty --title=microservice-two/9022 java -Dserver.port=9022 -jar netflix-microservice-two/target/microservice-two-0.0.1-SNAPSHOT.jar &
+mintty --title=microservice-two/9022 java -Dserver.port=9022 -jar microservice-two/target/microservice-two-0.0.1-SNAPSHOT.jar &
 sleep 20s
-mintty --title=microservice-two/9023 java -Dserver.port=9023 -jar netflix-microservice-two/target/microservice-two-0.0.1-SNAPSHOT.jar &
+mintty --title=microservice-two/9023 java -Dserver.port=9023 -jar microservice-two/target/microservice-two-0.0.1-SNAPSHOT.jar &
 sleep 25s
 
 # zuul server
