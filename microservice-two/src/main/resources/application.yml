@@ -5,7 +5,6 @@ info:
 ---
 server:
   port: 9002
-  contextPath: /microservice-two
 ---
 eureka:
   hostname: localhost
@@ -16,6 +15,18 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+---
+# http://localhost:8500/v1/catalog/service/microservice-two?pretty=true
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        # For the local environment to work ... (remove for real life)
+        healthCheckUrl: http://localhost:${server.port}/health
+        healthCheckInterval: 30s
+        tags: cluster=MYCLUSTER
 ---
 logging:
   pattern:

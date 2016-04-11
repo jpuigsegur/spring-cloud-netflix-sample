@@ -7,11 +7,28 @@
 	<packaging>pom</packaging>
 	<name>sample-spring-cloud-netflix</name>
 	<modules>
-		<module>netflix-eureka-server</module>
 		<module>microservice-one</module>
 		<module>microservice-two</module>
 		<module>netflix-zuul-server</module>
 		<module>netflix-hystrix-dashboard</module>
 		<module>netflix-hystrix-turbine</module>
 	</modules>
+	<properties>
+		<!-- Choose discovery service (eureka|consul) -->
+		<discoveryService>eureka</discoveryService>
+	</properties>
+	<profiles>
+		<profile>
+			<id>discoveryServiceEureka</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>netflix-eureka-server</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>discoveryServiceConsul</id>
+		</profile>
+	</profiles>
 </project>

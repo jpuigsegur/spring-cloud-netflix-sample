@@ -6,13 +6,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,14 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Controller
+@Controller()
 @Api(value="Test microservice", description="Example microservice API (microservice-two)")
-@RequestMapping("/")
-public class MicroserviceTwoController {
+@RequestMapping("/microserviceTwo")
+class MicroserviceTwoController {
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MicroserviceTwoController.class);
 
 	@Autowired
-	DiscoveryClient discoveryClient;
+	private DiscoveryClient discoveryClient;
 
 	@ApiOperation(tags = {"sample"},
         value = "Test operation",
@@ -37,9 +34,9 @@ public class MicroserviceTwoController {
 	@ApiResponses(value = {
         @ApiResponse(code = 200, message = "Successful response"),
         @ApiResponse(code = 500, message = "Unexpected error",  response = ErrorResult.class) })
-	@RequestMapping(value="/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/testCallTwo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseTwo testCall() {
+	public ResponseTwo testCallTwo() {
 		/* Simulate some computing time */
 		try {
 			Thread.sleep((int) (Math.random() * 250) + 25);

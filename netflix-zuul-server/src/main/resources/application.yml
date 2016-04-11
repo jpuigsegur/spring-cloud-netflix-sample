@@ -25,14 +25,25 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 ---
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        # For the local environment to work ... (remove for real life)
+        healthCheckUrl: http://localhost:${server.port}/health
+        healthCheckInterval: 30s
+        tags: cluster=MYCLUSTER
+---
 zuul:
  routes:
   microservice-one:  
-   path: /microservice-one/**
+   path: /microserviceOne/**
    serviceId: microservice-one
    strip-prefix: false
   microservice-two:  
-   path: /microservice-two/**
+   path: /microserviceTwo/**
    serviceId: microservice-two
    strip-prefix: false
 ---

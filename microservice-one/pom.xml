@@ -30,11 +30,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
-        <!-- Spring cloud Eureka service discovery -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
         <!-- spring cloud sleuth for log correlation -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -58,6 +53,26 @@
             <version>${lombok.version}</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>discoveryServiceEureka</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-eureka</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>discoveryServiceConsul</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>

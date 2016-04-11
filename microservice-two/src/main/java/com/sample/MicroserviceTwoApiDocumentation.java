@@ -17,6 +17,7 @@ public class MicroserviceTwoApiDocumentation {
     public Docket documentation() {
         return new Docket(DocumentationType.SWAGGER_2)
             .apiInfo(metadata())
+            .pathMapping("/")
             .select()
             .apis(RequestHandlerSelectors.basePackage("com.sample.controller"))
             .paths(PathSelectors.any())

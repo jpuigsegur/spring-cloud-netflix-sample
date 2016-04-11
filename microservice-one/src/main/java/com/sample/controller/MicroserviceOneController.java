@@ -21,8 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @Api(value="Test microservice", description="Example microservice API (microservice-one)")
-@RequestMapping("/")
-public class MicroserviceOneController {
+@RequestMapping("/microserviceOne")
+class MicroserviceOneController {
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MicroserviceOneController.class);
 
     @Autowired
@@ -38,9 +38,9 @@ public class MicroserviceOneController {
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Successful response"),
         @ApiResponse(code = 500, message = "Unexpected error",  response = ErrorResult.class) })
-    @RequestMapping(value="/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/testCallOne", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseOne testCall() {
+    public ResponseOne testCallOne() {
         /* Simulate some computing time */
         try {
             Thread.sleep((int) (Math.random() * 50) + 10);
@@ -58,8 +58,8 @@ public class MicroserviceOneController {
         response.setHost(localInstance.getHost());
         response.setPort(localInstance.getPort());
         response.setServiceId(localInstance.getServiceId());
-        // Call microserviceTwo.testCall()
-        response.setResponseTwo(microserviceTwoClient.testCall());
+        // Call microserviceTwo.testCallTwo()
+        response.setResponseTwo(microserviceTwoClient.testCallTwo());
         response.setResult("This is microservice ONE response");
         LOGGER.info("Microservice ONE call");
         return response;

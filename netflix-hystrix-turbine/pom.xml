@@ -14,15 +14,40 @@
 		<start-class>com.sample.HystrixTurbineApplication</start-class>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-turbine</artifactId>
-		</dependency>
+		<!-- spring boot actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 	</dependencies>
+    <profiles>
+        <profile>
+            <id>discoveryServiceEureka</id>
+            <dependencies>
+                <!-- turbine starter already includes eureka full support -->
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-turbine</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>discoveryServiceConsul</id>
+            <dependencies>
+                <!-- https://github.com/spring-cloud/spring-cloud-consul/blob/master/docs/src/main/asciidoc/spring-cloud-consul.adoc#hystrix-metrics-aggregation-with-turbine-and-consul-->
+                <!-- https://github.com/spring-cloud/spring-cloud-consul/issues/53-->
+                <!-- problem detected: pending metadata support to be able to define clusters-->
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-netflix-turbine</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 	<build>
 		<plugins>
 			<plugin>

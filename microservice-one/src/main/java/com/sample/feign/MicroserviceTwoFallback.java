@@ -3,9 +3,9 @@ package com.sample.feign;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MicroserviceTwoFallback implements IMicroserviceTwoClient {
+class MicroserviceTwoFallback implements IMicroserviceTwoClient {
     @Override
-    public ResponseTwo testCall() {
+    public ResponseTwo testCallTwo() {
         ResponseTwo response = new ResponseTwo();
         response.setResult("FAKED RESULT (FALLBACK)");
         return response;

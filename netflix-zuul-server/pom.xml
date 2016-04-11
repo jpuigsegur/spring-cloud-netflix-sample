@@ -18,10 +18,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-		</dependency>
         <!-- actuator dependency necessary to activate hystrix.stream -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,6 +29,26 @@
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>discoveryServiceEureka</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-eureka</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>discoveryServiceConsul</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
