@@ -5,6 +5,7 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-parent</artifactId>
         <version>Brixton.RC1</version>  <!-- Need last version to have fallback support for feign -->
+        <!-- Should soon be a RELEASE version: https://spring.io/blog/2016/03/24/spring-cloud-brixton-rc1-is-now-available -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 	<groupId>com.sample</groupId>
