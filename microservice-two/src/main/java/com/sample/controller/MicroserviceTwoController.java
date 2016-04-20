@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 @Slf4j
@@ -82,6 +82,11 @@ class MicroserviceTwoController {
 		result.setHost(localInstance.getHost());
 		result.setPort(localInstance.getPort());
 		result.setServiceId(localInstance.getServiceId());
+		result.setDate(LocalDate.now());
+		result.setDateTime(LocalDateTime.now());
+		result.setTime(LocalTime.now());
+		result.setOffsetDateTime(OffsetDateTime.now());
+		result.setOffsetTime(OffsetTime.now());
 		result.setResult("This is microservice TWO response");
         LOGGER.info("Microservice TWO call");
         httpHeaders.set(X_MY_PROCESS_TIME, Long.toString(ChronoUnit.MILLIS.between(timestamp, LocalDateTime.now())));

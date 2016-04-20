@@ -26,7 +26,10 @@ spring:
         # For the local environment to work ... (remove for real life)
         healthCheckUrl: http://localhost:${server.port}/health
         healthCheckInterval: 30s
-        tags: cluster=MYCLUSTER
+        tags: cluster=MYCLUSTER,availability-zone-A
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
 ---
 logging:
   pattern:

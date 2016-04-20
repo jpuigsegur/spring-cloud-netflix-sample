@@ -8,7 +8,12 @@ This project is intended to be a test and practical example of several spring cl
 - Circuit breaker using Hystrix
 - Real time monitoring using Hystrix Dashboard + Turbine
 - Log correlation using sleuth
+
+We also use other interesting technologies
+
 - Swagger to document microservices API
+- Examples on how to serialize and document new java.time classes 
+
 
 There are two maven profiles defined to choose between consul and Eureka. Eureka profile is active by default.
 
