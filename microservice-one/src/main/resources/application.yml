@@ -16,7 +16,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 ---
-# http://localhost:8500/v1/catalog/service/microservice-two?pretty=true
+# http://localhost:8500/v1/catalog/service/microservice-one?pretty=true
 spring:
   cloud:
     consul:
@@ -24,23 +24,24 @@ spring:
       port: 8500
       discovery:
         # For the local environment to work ... (remove for real life)
-        healthCheckUrl: http://localhost:${server.port}/health
+        healthCheckUrl: "http://localhost:${server.port}/health"
         healthCheckInterval: 30s
-        tags: cluster=MYCLUSTER
+        tags: cluster=MYCLUSTER,availability-zone-A
+        serverListQueryTags: { microservice-two : availability-zone-A }
 ---
 # https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
   command:
-    myMicroserviceTwo:
+    testCallTwo:
       execution:
         isolation.thread.timeoutInMilliseconds: 500
       circuitBreaker:
         requestVolumeThreshold: 2    # For testing purposes
 ---
 logging:
-#  level:
-#    org.springframework.cloud: DEBUG
-#    com.ecwid.consul: TRACE
+  level:
+    org.springframework.cloud: DEBUG
+    com.ecwid.consul: TRACE
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-}] [%15.15t] %-40.40logger{39}: %m%n'
 ---
