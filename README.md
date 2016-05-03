@@ -31,6 +31,8 @@ Build project using:
 
 The run script presupposes that you have consul installed and runs a local development instance.
 
+It uses tags to select instances to be called (i.e. mirroring AWS availability zones).
+
 ## Client side balancing using Ribbon
 
 ## Edge server using zuul
